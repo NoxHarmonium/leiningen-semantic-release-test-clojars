@@ -68,6 +68,9 @@ jobs:
           name: import GPG key 📩
           command: echo -e "$GPG_KEY" | gpg --import  --yes
       - run:
+          # This will verify the gpg passphrase but also cache it in the gpg agent
+          # The passphrase needs to be cached in the agent because there doesn't seem
+          # to be a way to make leiningen pass the `--passphrase` argument to gpg at signing time
           name: check gpg passphrase 🔓
           command: echo "test" | gpg --sign --passphrase "$GPG_PASSPHRASE" -o /dev/null
       - run:
