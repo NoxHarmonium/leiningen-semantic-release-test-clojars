@@ -49,7 +49,16 @@ jobs:
           at: ~/repo
       # Ensure that no-tty and batch are added to each gpg command
       # The TTY doesn't seem to work correctly in Circle CI even with `export GPG_TTY=$(tty)`
-      - run: mkdir -p ~/.gnupg/ && echo "no-tty" >> ~/.gnupg/gpg.conf && echo "batch" >> ~/.gnupg/gpg.conf && cat ~/.gnupg/gpg.conf
+      - run: |
+          mkdir -p ~/.gnupg/
+          echo "no-tty" >> ~/.gnupg/gpg.conf
+          echo "batch" >> ~/.gnupg/gpg.conf
+          echo use-agent >> ~/.gnupg/gpg.conf
+          echo pinentry-mode loopback >> ~/.gnupg/gpg.conf
+          echo allow-loopback-pinentry >> ~/.gnupg/gpg-agent.conf
+          echo RELOADAGENT | gpg-connect-agent
+          cat ~/.gnupg/gpg.conf
+          cat ~/.gnupg/gpg-agent.conf
       - run:
           # A secret GPG private key to sign the bundle with
           # Created with `gpg -a --export-secret-keys <fingerprint> | cat -e | sed 's/\$/\\n/g'`
@@ -59,8 +68,8 @@ jobs:
           name: import GPG key 📩
           command: echo -e "$GPG_KEY" | gpg --import  --yes
       - run:
-          name: decrypt secrets 🔓
-          command: gpg --no-tty --batch --passphrase "$GPG_PASSPHRASE" --pinentry-mode loopback --output secrets.env --decrypt secrets.env.gpg
+          name: check gpg passphrase 🔓
+          command: echo "test" | gpg2 --sign --passphrase "$GPG_PASSPHRASE" -o /dev/null
       - run:
           name: run release 🚀
           command: npm run semantic-release
