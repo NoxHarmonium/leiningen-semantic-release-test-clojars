@@ -1,6 +1,7 @@
 # leiningen-semantic-release-test-clojars
 
 [![CircleCI](https://circleci.com/gh/NoxHarmonium/leiningen-semantic-release-test-clojars.svg?style=svg)](https://circleci.com/gh/NoxHarmonium/leiningen-semantic-release-test-clojars)
+[![Clojars Project](https://img.shields.io/clojars/v/leiningen-semantic-release-test-clojars.svg)](https://clojars.org/leiningen-semantic-release-test-clojars)
 
 ## Summary
 
