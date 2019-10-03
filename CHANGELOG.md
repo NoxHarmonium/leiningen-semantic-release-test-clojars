@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/NoxHarmonium/leiningen-semantic-release-test-clojars/compare/v1.0.1...v1.0.2) (2019-10-03)
+
+
+### Bug Fixes
+
+* try to fix gpg tty issue ([39f090c](https://github.com/NoxHarmonium/leiningen-semantic-release-test-clojars/commit/39f090c))
+
 ## [1.0.1](https://github.com/NoxHarmonium/leiningen-semantic-release-test-clojars/compare/v1.0.0...v1.0.1) (2019-10-03)
 
 
