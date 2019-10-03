@@ -56,10 +56,13 @@ jobs:
           # See also: https://discuss.circleci.com/t/gpg-keys-as-environment-variables/28641
           # Passphrase is passed as LEIN_PASSPHRASE environment variable,
           # lein will automatically call gpg and pass in the passphrase for you
-          name: import GPG key
+          name: import GPG key 📩
           command: echo -e "$GPG_KEY" | gpg --import  --yes
       - run:
-          name: Run release 🚀
+          name: decrypt secrets 🔓
+          command: gpg --no-tty --batch --passphrase "$GPG_PASSPHRASE" --pinentry-mode loopback --output secrets.env --decrypt secrets.env.gpg
+      - run:
+          name: run release 🚀
           command: npm run semantic-release
 
 workflows:

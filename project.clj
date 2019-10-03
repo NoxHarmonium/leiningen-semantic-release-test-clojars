@@ -15,5 +15,5 @@
   ; Although this example uses clojars, you shoul be able to change the URL to maven central or a private repo and it will still work.
   ; The :env symbol delegates the value to an environment variable.
   ; In this case the username, password and GPG private key passphrase will come from LEIN_USERNAME, LEIN_PASSWORD and LEIN_PASSPHRASE respectively
-  :deploy-repositories [["releases" {:url "https://repo.clojars.org" :username :env :password :env :passphrase :env}]
-                        ["snapshots" {:url "https://repo.clojars.org" :username :env :password :env :passphrase :env}]])
+  :deploy-repositories [["releases" {:url "https://repo.clojars.org" :username :env :password :env}]
+                        ["snapshots" {:url "https://repo.clojars.org" :username :env :password :env}]])
