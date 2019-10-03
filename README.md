@@ -12,3 +12,19 @@ The interesting bits are:
 - [.circleci/config.yml](./.circleci/config.yml) - The build script that builds and deploys the library automatically using semantic-release.
 
 The code under the src and test directories is not at all interesting.
+
+## Envrionment Variables
+
+The environment variables that are needed for this build to work are:
+
+- GH_TOKEN - A Github personal access token to push updates to Github.
+- GPG_KEY - The secret key to import into gpg and sign the artifact with before uploading to clojars.
+- GPG_PASSPHRASE - The passphrase to access the key in GPG_KEY.
+- LEIN_USERNAME - The username used to upload to clojars.
+- LEIN_PASSWORD	- THe password used to upload to clojars.
+
+GPG_KEY was exported with the following command:
+
+```bash
+`gpg -a --export-secret-keys <fingerprint> | cat -e | sed 's/\$/\\n/g'`
+```
