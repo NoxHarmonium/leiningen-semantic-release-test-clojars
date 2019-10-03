@@ -69,7 +69,7 @@ jobs:
           command: echo -e "$GPG_KEY" | gpg --import  --yes
       - run:
           name: check gpg passphrase 🔓
-          command: echo "test" | gpg2 --sign --passphrase "$GPG_PASSPHRASE" -o /dev/null
+          command: echo "test" | gpg --sign --passphrase "$GPG_PASSPHRASE" -o /dev/null
       - run:
           name: run release 🚀
           command: npm run semantic-release
