@@ -47,6 +47,9 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/repo
+      # Ensure that no-tty and batch are added to each gpg command
+      # The TTY doesn't seem to work correctly in Circle CI even with `export GPG_TTY=$(tty)`
+      - run: mkdir -p ~/.gnupg/ && echo "no-tty" >> ~/.gnupg/gpg.conf && echo "batch" >> ~/.gnupg/gpg.conf && cat ~/.gnupg/gpg.conf
       - run:
           # A secret GPG private key to sign the bundle with
           # Created with `gpg -a --export-secret-keys <fingerprint> | cat -e | sed 's/\$/\\n/g'`
@@ -54,10 +57,10 @@ jobs:
           # Passphrase is passed as LEIN_PASSPHRASE environment variable,
           # lein will automatically call gpg and pass in the passphrase for you
           name: import GPG key
-          command: echo -e "$GPG_KEY" | gpg --import --no-tty --batch --yes
+          command: echo -e "$GPG_KEY" | gpg --import  --yes
       - run:
           name: Run release 🚀
-          command: GPG_TTY=$(tty) npm run semantic-release
+          command: npm run semantic-release
 
 workflows:
   version: 2
