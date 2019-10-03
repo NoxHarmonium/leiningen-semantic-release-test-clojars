@@ -1,3 +1,15 @@
+# 1.0.0 (2019-10-03)
+
+
+### Bug Fixes
+
+* try and fix GPG import ([80c7589](https://github.com/NoxHarmonium/leiningen-semantic-release-test-clojars/commit/80c7589))
+
+
+### Features
+
+* initialise repository ([ad0b81b](https://github.com/NoxHarmonium/leiningen-semantic-release-test-clojars/commit/ad0b81b))
+
 ## [1.1.4](https://github.com/NoxHarmonium/leiningen-semantic-release-test-clojars/compare/v1.1.3...v1.1.4) (2019-10-03)
 
 
