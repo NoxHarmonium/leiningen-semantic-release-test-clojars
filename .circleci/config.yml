@@ -1,0 +1,72 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/clojure:lein-node-browsers
+
+    working_directory: ~/repo
+
+    environment:
+      # Allows leiningen to run as root
+      LEIN_ROOT: "true"
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v2-dependencies-{{ checksum "package.json" }}
+            - v2-dependencies-{{ checksum "project.clj" }}
+      # Semantic release dependencies
+      - run: npm install
+
+      # Download dependencies,makes sure the code compiles and runs tests
+      - run: lein test
+
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: v2-dependencies-{{ checksum "project.clj" }}
+
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: v2-dependencies-{{ checksum "package.json" }}
+
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - .
+
+  deploy:
+    docker:
+      - image: circleci/clojure:lein-node-browsers
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          # A secret GPG private key to sign the bundle with
+          # Created with `gpg -a --export-secret-keys <fingerprint> | cat -e | sed 's/\$/\\n/g'`
+          # See also: https://discuss.circleci.com/t/gpg-keys-as-environment-variables/28641
+          # Passphrase is passed as LEIN_PASSPHRASE environment variable,
+          # lein will automatically call gpg and pass in the passphrase for you
+          name: import GPG key
+          command: echo -e "$GPG_KEY" | gpg --import
+      - run:
+          name: Run release 🚀
+          command: npm run semantic-release
+
+workflows:
+  version: 2
+  build-n-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: /master/
