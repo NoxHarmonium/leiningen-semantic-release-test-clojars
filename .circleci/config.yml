@@ -54,7 +54,7 @@ jobs:
           # Passphrase is passed as LEIN_PASSPHRASE environment variable,
           # lein will automatically call gpg and pass in the passphrase for you
           name: import GPG key
-          command: echo -e "$GPG_KEY" | gpg --import
+          command: echo -e "$GPG_KEY" | gpg --import --no-tty --batch --yes
       - run:
           name: Run release 🚀
           command: npm run semantic-release
