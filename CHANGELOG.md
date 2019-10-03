@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/NoxHarmonium/leiningen-semantic-release-test-clojars/compare/v1.0.3...v2.0.0) (2019-10-03)
+
+
+### Features
+
+* force major version bump ([fdb17ed](https://github.com/NoxHarmonium/leiningen-semantic-release-test-clojars/commit/fdb17ed))
+
+
+### BREAKING CHANGES
+
+* forced version update
+
 ## [1.0.3](https://github.com/NoxHarmonium/leiningen-semantic-release-test-clojars/compare/v1.0.2...v1.0.3) (2019-10-03)
 
 
