@@ -57,7 +57,7 @@ jobs:
           command: echo -e "$GPG_KEY" | gpg --import --no-tty --batch --yes
       - run:
           name: Run release 🚀
-          command: npm run semantic-release
+          command: GPG_TTY=$(tty) npm run semantic-release
 
 workflows:
   version: 2
