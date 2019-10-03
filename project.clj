@@ -1,4 +1,4 @@
-(defproject leiningen-semantic-release-test-clojars "1.0.2"
+(defproject leiningen-semantic-release-test-clojars "1.0.3"
   :description "A hello world project to test the leiningen-semantic-release plugin"
   :url "https://github.com/NoxHarmonium/leiningen-semantic-release-test-clojars"
   :scm {:name "git"

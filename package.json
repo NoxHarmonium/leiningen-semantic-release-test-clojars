@@ -1,6 +1,6 @@
 {
   "name": "leiningen-semantic-release-test-clojars",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A hello world project to test the leiningen-semantic-release plugin",
   "repository": "git@github.com:NoxHarmonium/leiningen-semantic-release-test-clojars.git",
   "author": "Sean Dawson <contact@seandawson.info>",

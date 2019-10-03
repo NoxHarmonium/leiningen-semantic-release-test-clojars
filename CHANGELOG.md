@@ -1,3 +1,12 @@
+## [1.0.3](https://github.com/NoxHarmonium/leiningen-semantic-release-test-clojars/compare/v1.0.2...v1.0.3) (2019-10-03)
+
+
+### Bug Fixes
+
+* decrypt private key before deploy ([e27a2f8](https://github.com/NoxHarmonium/leiningen-semantic-release-test-clojars/commit/e27a2f8))
+* fix typo in command ([f919493](https://github.com/NoxHarmonium/leiningen-semantic-release-test-clojars/commit/f919493))
+* try another way to sign gpg ([4059130](https://github.com/NoxHarmonium/leiningen-semantic-release-test-clojars/commit/4059130))
+
 ## [1.0.2](https://github.com/NoxHarmonium/leiningen-semantic-release-test-clojars/compare/v1.0.1...v1.0.2) (2019-10-03)
 
 
