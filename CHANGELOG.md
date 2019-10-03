@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/NoxHarmonium/leiningen-semantic-release-test-clojars/compare/v1.0.0...v1.0.1) (2019-10-03)
+
+
+### Bug Fixes
+
+* another attempt at making gpg happy ([502f923](https://github.com/NoxHarmonium/leiningen-semantic-release-test-clojars/commit/502f923))
+
 # 1.0.0 (2019-10-03)
 
 
