@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/NoxHarmonium/leiningen-semantic-release-test-clojars/compare/v2.0.0...v2.0.1) (2019-10-04)
+
+
+### Bug Fixes
+
+* update leiningen-semantic-release ([e140f9e](https://github.com/NoxHarmonium/leiningen-semantic-release-test-clojars/commit/e140f9e))
+
 # [2.0.0](https://github.com/NoxHarmonium/leiningen-semantic-release-test-clojars/compare/v1.0.3...v2.0.0) (2019-10-03)
 
 
